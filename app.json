@@ -1,32 +1,35 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/user/user",
     "pages/exam/exam",
     "pages/info/info"
   ],
-  "window":{
-  "navigationBarBackgroundColor": "#ef800a",
-  "navigationBarTextStyle": "white",
-  "navigationBarTitleText": "亲近母语",
-  "backgroundColor": "#fff",
-  "enablePullDownRefresh": false
+  "window": {
+    "navigationBarBackgroundColor": "#ef800a",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "亲近母语",
+    "backgroundColor": "#fff",
+    "enablePullDownRefresh": false
   },
   "tabBar": {
     "color": "#333",
     "selectedColor": "#ef800a",
     "backgroundColor": "#fff",
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "主页",
-      "iconPath": "static/home.png",
-      "selectedIconPath": "static/home-selected.png"
-    },{
-      "pagePath": "pages/user/user",
-      "text": "个人",
-      "iconPath": "static/user.png",
-      "selectedIconPath": "static/user-selected.png"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "static/home.png",
+        "selectedIconPath": "static/home-selected.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "个人",
+        "iconPath": "static/user.png",
+        "selectedIconPath": "static/user-selected.png"
+      }
+    ]
   },
   "networkTimeout": {
     "request": 20000,
