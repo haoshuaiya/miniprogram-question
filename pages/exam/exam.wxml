@@ -1,0 +1,90 @@
+<!--pages/exam/exam.wxml-->
+<view wx:if='{{currentIndex==-1}}' class='exam-title-wrap'>
+    <view class='exam-title'>
+        {{title}}
+    </view>
+    <view class='exam-nums'>
+        本次测试共有{{list.length}}题
+    </view>
+    <view class='exam-num-btn'>
+        <button type='primary' bindtap='next'>开始答题</button>
+    </view>
+</view>
+<view wx:elif='{{currentIndex<list.length}}' class='exam-detail-wrap'>
+    <block wx:for='{{list}}' wx:key='{{index}}'>
+        <view wx:if='{{currentIndex===index}}' class='exam-ques-title'>{{item.index}}.{{item.title}}</view>
+        <view wx:if='{{item.type==="single" && index===currentIndex}}'>
+            <radio-group class='radio-group' bindchange='radioChange'>
+                <label class='radio'  wx:for='{{item.options}}' wx:for-index="idx" wx:for-item='cItem'>
+                    <radio value='{{cItem.value}}' checked='{{list[index].options[idx].checked}}'>
+                       {{cItem.name}}
+                    </radio>
+                </label>
+            </radio-group>
+        </view>
+        <view wx:if='{{item.type==="multiple" && index===currentIndex}}'>
+            <checkbox-group class='radio-group' bindchange='checkChange' >
+                <label class='checkbox' wx:for='{{item.options}}' wx:for-index="idx" wx:for-item='cItem'>
+                    <checkbox value='{{cItem.value}}' checked='{{list[index].options[idx].checked}}'>
+                        {{cItem.name}}
+                    </checkbox>
+                </label>
+            </checkbox-group>
+        </view>
+    </block>
+    <button type='primary' class='btn-top' bindtap='next' disabled='{{!list[currentIndex].checked.length}}'>{{currentIndex<list.length-1?'下一题':'提交'}}</button>
+</view>
+<view class='exam-result' wx:else>
+    <view class='exam-result-banner'>
+        恭喜您，完成测试！
+    </view>
+    <view class='result-head'>
+        测试结果如下:
+    </view>
+    <view class='exam-result-summary'>
+        <view>
+            正确
+            <span class='correct'>
+                {{list.length - wrongArr.length}}
+            </span>
+            题
+        </view>
+        <view>
+            错误
+            <span class='wrong'>
+                {{wrongArr.length}}
+            </span>
+            题
+        </view>
+    </view>
+    <view class='result-head mt-20' wx:if='{{wrongArr.length}}'>
+        错误内容如下:
+    </view>
+    <block wx:for='{{wrongArr}}' wx:key='{{index}}'>
+        <view class='exam-ques-result-title'>{{item.index}}.{{item.title}}</view>
+        <view wx:if='{{item.type==="single"}}'>
+            <radio-group class='radio-group' >
+                <label class='radio' wx:for='{{item.options}}' wx:for-index="idx" wx:for-item='cItem'>
+                    <radio value='{{cItem.value}}' disabled='true' checked='{{item.checked == cItem.value}}'>
+                        {{cItem.name}}
+                    </radio>
+                </label>
+            </radio-group>
+             <view class='result-head'>
+                正确答案为:{{item.answer}}
+            </view>
+        </view>
+        <view wx:if='{{item.type==="multiple"}}'>
+            <checkbox-group class='radio-group' >
+                <label class='checkbox' wx:for='{{item.options}}' wx:for-index="idx" wx:for-item='cItem'>
+                    <checkbox value='{{cItem.value}}' disabled='true' checked='{{item.checked.indexOf(cItem.value)!==-1}}'>
+                        {{item.selected.indexOf(cItem.value)}}.{{cItem.name}}
+                    </checkbox>
+                </label>
+            </checkbox-group>
+             <view class='result-head'>
+                正确答案为:{{item.answer}}
+            </view>
+        </view>
+    </block>
+</view>

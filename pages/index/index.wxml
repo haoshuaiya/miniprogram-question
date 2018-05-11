@@ -1,0 +1,12 @@
+<!--pages/index/index.wxml-->
+<view class='list-head'>试卷列表:</view>
+<view class='list-container'>
+    <view class='list-item-container' wx:for='{{list}}' hover-class='list-hover' data-id='{{item.id}}' bindtap='startExam'>
+        <view class='list-index'>
+            {{index+1}}
+        </view>
+        <view class='list-title'>
+            {{item.title}}
+        </view>
+    </view>
+</view>

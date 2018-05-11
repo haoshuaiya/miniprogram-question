@@ -1,0 +1,58 @@
+/* pages/exam/exam.wxss */
+.exam-title-wrap{
+    height: 100%;
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 50rpx;
+}
+.exam-detail-wrap{
+    height: 100%;
+    padding: 30rpx;
+}
+.exam-title{
+   font-size: 40rpx;
+   line-height: 3;
+}
+.exam-num-btn{
+    width: 400rpx;
+    margin-top: 200rpx;
+}
+.radio,
+.checkbox{
+    display: block;
+    margin-bottom: 20rpx;
+}
+.radio-group{
+    padding: 10rpx;
+    background: #fff;
+    margin-top: 20rpx;
+}
+.btn-top{
+    margin-top: 30rpx;
+}
+.exam-result-banner{
+    text-align: center;
+    line-height: 4;
+    font-size: 40rpx;
+}
+.result-head{
+    padding-left: 20rpx;
+}
+.exam-result-summary{
+    margin-top: 15rpx;
+    background: #fff;
+    padding: 15rpx 25rpx;
+}
+.correct{
+    color: #7cb305;
+}
+.wrong{
+    color: #871400;
+}
+.exam-ques-result-title{
+    padding-left: 25rpx;
+    margin-top: 20rpx;
+}
